@@ -382,6 +382,10 @@ curl -X POST https://localhost:5007/api/chat/message \
   }'
 ```
 
+Fabio H S Eduardo - RM560416
+Gabriel Wu Castro - RM560210
+Renato Kenji Sugaki - RM559810
 
+Projeto academico desenvolvido para a disciplina de Advanced Business Development with .NET
 
 **Desenvolvido para apoiar a saúde emocional**
