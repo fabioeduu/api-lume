@@ -17,11 +17,6 @@ namespace Lume.Api.Controllers
             _logger = logger;
         }
 
-        /// <summary>
-        /// Register a new user
-        /// </summary>
-        /// <param name="registerDto">User registration data</param>
-        /// <returns>Auth response with JWT token</returns>
         [HttpPost("register")]
         [ProducesResponseType(typeof(AuthResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -38,11 +33,6 @@ namespace Lume.Api.Controllers
             return Ok(result);
         }
 
-        /// <summary>
-        /// Login user
-        /// </summary>
-        /// <param name="loginDto">User login credentials</param>
-        /// <returns>Auth response with JWT token</returns>
         [HttpPost("login")]
         [ProducesResponseType(typeof(AuthResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

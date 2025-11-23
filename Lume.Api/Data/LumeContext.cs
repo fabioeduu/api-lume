@@ -17,7 +17,6 @@ namespace Lume.Api.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // User entity
             modelBuilder.Entity<User>()
                 .HasKey(u => u.Id);
             modelBuilder.Entity<User>()
@@ -35,7 +34,6 @@ namespace Lume.Api.Data
                 .IsRequired()
                 .HasMaxLength(255);
 
-            // Checkin entity
             modelBuilder.Entity<Checkin>()
                 .HasKey(c => c.Id);
             modelBuilder.Entity<Checkin>()
@@ -51,7 +49,6 @@ namespace Lume.Api.Data
                 .Property(c => c.EmotionalLevel)
                 .IsRequired();
 
-            // ChatMessage entity
             modelBuilder.Entity<ChatMessage>()
                 .HasKey(cm => cm.Id);
             modelBuilder.Entity<ChatMessage>()

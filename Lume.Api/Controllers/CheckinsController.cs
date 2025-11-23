@@ -25,11 +25,6 @@ namespace Lume.Api.Controllers
             return int.TryParse(userIdClaim, out var userId) ? userId : 0;
         }
 
-        /// <summary>
-        /// Create a new check-in
-        /// </summary>
-        /// <param name="createDto">Check-in data</param>
-        /// <returns>Created check-in</returns>
         [HttpPost]
         [ProducesResponseType(typeof(CheckinDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -66,13 +61,6 @@ namespace Lume.Api.Controllers
             return Ok(result);
         }
 
-        /// <summary>
-        /// Get user's check-in history
-        /// </summary>
-        /// <param name="userId">User ID</param>
-        /// <param name="fromDate">Optional: Start date</param>
-        /// <param name="toDate">Optional: End date</param>
-        /// <returns>List of check-ins</returns>
         [HttpGet("user/{userId}")]
         [ProducesResponseType(typeof(IEnumerable<CheckinHistoryDto>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<CheckinHistoryDto>>> GetUserCheckins(
@@ -94,10 +82,6 @@ namespace Lume.Api.Controllers
             return Ok(result);
         }
 
-        /// <summary>
-        /// Get current user's check-in history
-        /// </summary>
-        /// <returns>List of check-ins</returns>
         [HttpGet("my-checkins")]
         [ProducesResponseType(typeof(IEnumerable<CheckinHistoryDto>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<CheckinHistoryDto>>> GetMyCheckins()
@@ -110,12 +94,6 @@ namespace Lume.Api.Controllers
             return Ok(result);
         }
 
-        /// <summary>
-        /// Update a check-in
-        /// </summary>
-        /// <param name="id">Check-in ID</param>
-        /// <param name="updateDto">Updated data</param>
-        /// <returns>Updated check-in</returns>
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(CheckinDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -132,11 +110,6 @@ namespace Lume.Api.Controllers
             return Ok(result);
         }
 
-        /// <summary>
-        /// Delete a check-in
-        /// </summary>
-        /// <param name="id">Check-in ID</param>
-        /// <returns>Success message</returns>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

@@ -25,11 +25,6 @@ namespace Lume.Api.Controllers
             return int.TryParse(userIdClaim, out var userId) ? userId : 0;
         }
 
-        /// <summary>
-        /// Send a chat message
-        /// </summary>
-        /// <param name="messageDto">Message content</param>
-        /// <returns>Created message</returns>
         [HttpPost("message")]
         [ProducesResponseType(typeof(ChatMessageDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -49,12 +44,6 @@ namespace Lume.Api.Controllers
             return CreatedAtAction(nameof(SendMessage), result);
         }
 
-        /// <summary>
-        /// Get chat history for a user
-        /// </summary>
-        /// <param name="userId">User ID</param>
-        /// <param name="limit">Optional: Number of messages to retrieve</param>
-        /// <returns>Chat messages</returns>
         [HttpGet("history/{userId}")]
         [ProducesResponseType(typeof(IEnumerable<ChatMessageDto>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<ChatMessageDto>>> GetChatHistory(
@@ -75,11 +64,6 @@ namespace Lume.Api.Controllers
             return Ok(result);
         }
 
-        /// <summary>
-        /// Get current user's chat history
-        /// </summary>
-        /// <param name="limit">Optional: Number of messages to retrieve</param>
-        /// <returns>Chat messages</returns>
         [HttpGet("history")]
         [ProducesResponseType(typeof(IEnumerable<ChatMessageDto>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<ChatMessageDto>>> GetMyHistory([FromQuery] int? limit = null)
@@ -102,11 +86,6 @@ namespace Lume.Api.Controllers
             return Ok(result);
         }
 
-        /// <summary>
-        /// Delete a chat message
-        /// </summary>
-        /// <param name="messageId">Message ID</param>
-        /// <returns>Success message</returns>
         [HttpDelete("message/{messageId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

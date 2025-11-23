@@ -26,11 +26,6 @@ namespace Lume.Api.Controllers
             return int.TryParse(userIdClaim, out var userId) ? userId : 0;
         }
 
-        /// <summary>
-        /// Get user profile
-        /// </summary>
-        /// <param name="id">User ID</param>
-        /// <returns>User profile data</returns>
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(UserProfileDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -63,11 +58,6 @@ namespace Lume.Api.Controllers
             return Ok(result);
         }
 
-        /// <summary>
-        /// Update user profile
-        /// </summary>
-        /// <param name="updateDto">Updated user data</param>
-        /// <returns>Updated user profile</returns>
         [HttpPut]
         [ProducesResponseType(typeof(UserProfileDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -88,10 +78,6 @@ namespace Lume.Api.Controllers
             return Ok(result);
         }
 
-        /// <summary>
-        /// Delete user account
-        /// </summary>
-        /// <returns>Success message</returns>
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
